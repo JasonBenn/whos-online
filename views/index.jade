@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title Who's Online?
+    link(rel='stylesheet', href='/bootstrap.css')
+  body
+    .container 
+      each match in onlineNow
+        .row
+          img(src=match.main_picture.picture)
+          .name #{match.first_name} #{match.last_name}
+          .online #{match.last_seen}
