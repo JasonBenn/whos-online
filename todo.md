@@ -1,7 +1,9 @@
-Who's Online
+#### Who's Online
 
 ---
 
+* need an easy way to open the site.
+  * a link to start the server would be really cool too.
 * add TINDER GIRLS.
   * find a way to scrape all their IDs. What's the API after you've wiped your data?
 * Click on their picture, see a slideshow with more pictures. Would be awesome.
@@ -15,3 +17,6 @@ Who's Online
     * In iPhone wifi settings, set a manual proxy with the IP address and port 8888.
     * For Tinder, anything to api.gotinder.com, go to "Request" tab, right click and "Copy cURL request"
     * Similar for Hinge.
+* Write a first message, save it to a DB, send that message next time they're online.
+  * Requires that I can authenticate at any time
+  * Requires that I can check last online while I'm AFK
