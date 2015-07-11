@@ -40,10 +40,6 @@ body {
   text-shadow: 0 0 3px black;
 }
 
-.caption .online {
-
-}
-
-.caption .matched {
-
+.caption .online.active {
+  color: rgb(152, 254, 152);
 }

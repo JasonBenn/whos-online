@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
     let matches = JSON.parse(body).result.user_data.matches
     let onlineNow = []
     for (let { id, subject, match_date } of matches) if (ONLINE.test(subject.last_seen)) {
+      if (/just now\!/.test(subject.last_seen)) subject.onlineNow = true;
       subject.matchDate = match_date
       onlineNow.push(subject)
     }

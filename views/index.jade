@@ -11,5 +11,5 @@ html
           img(src=match.main_picture.source)
           .caption
             .name #{match.first_name} #{match.last_name}
-            .online seen #{match.last_seen}
+            .online(class={active: match.onlineNow}) seen #{match.last_seen}
             .matched from #{match.matchDate}
