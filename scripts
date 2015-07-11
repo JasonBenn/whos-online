@@ -1,0 +1,13 @@
+#!/bin/bash
+
+TOKEN='CAAEFa9d47GIBAJCheMPijDzG9bNZAT9Hl7kwYAh1Rw7JLgi4pzcbv5ObBezAnAZBuTzgZCayEjcRyVtivNoIEMfNF8rM3kAovTuLYnZBBVOwWZBVjrUD8oGIa0koBZBVSUoI3M7MrjmefozEKezxDTj5FeOdMKirz4pfWZCPrcIilPKq7ktlTKDWJaNlF078fAecj70ptroo5uCZAIXRagiWChPwCcZC4mzEZD'
+
+# Get updates on last time online:
+curl 
+  -H "X-Token: ${TOKEN}" \
+  -H "X-Version: 2015.07.06" \
+  -H "Content-Type: application/json" \
+  -H "X-Facebook-API-Version: 2.2" \
+  -H "X-NewRelic-ID: Vg8CVVVXGwEAUlJQAwI=" \
+  -H "X-Device-Type: ios" \
+  https://prod-hinge-mobile-02.herokuapp.com/api/v1/users/1565310227/init/?chat_enabled=3&delta_since_timestamp=1
