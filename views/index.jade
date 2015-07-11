@@ -2,11 +2,14 @@ doctype html
 html
   head
     title Who's Online?
-    link(rel='stylesheet', href='/bootstrap.css')
+    link(rel='stylesheet', href='/app.css')
   body
-    .container 
+    .heading #{onlineNow.length} online now
+    .flex-container
       each match in onlineNow
-        .row
-          img(src=match.main_picture.picture)
-          .name #{match.first_name} #{match.last_name}
-          .online #{match.last_seen}
+        .image-with-caption
+          img(src=match.main_picture.source)
+          .caption
+            .name #{match.first_name} #{match.last_name}
+            .online seen #{match.last_seen}
+            .matched from #{match.matchDate}
