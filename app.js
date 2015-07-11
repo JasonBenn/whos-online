@@ -13,10 +13,22 @@ app.use(express.static('public'));
 let ONLINE = /(\d+ minutes ago|just now\!)/
 let formatUnixTime = unixTime => moment.unix(unixTime).format("MMM Do")
 
+const TOKEN='CAAEFa9d47GIBAJCheMPijDzG9bNZAT9Hl7kwYAh1Rw7JLgi4pzcbv5ObBezAnAZBuTzgZCayEjcRyVtivNoIEMfNF8rM3kAovTuLYnZBBVOwWZBVjrUD8oGIa0koBZBVSUoI3M7MrjmefozEKezxDTj5FeOdMKirz4pfWZCPrcIilPKq7ktlTKDWJaNlF078fAecj70ptroo5uCZAIXRagiWChPwCcZC4mzEZD'
+
+let options = {
+  url: 'https://prod-hinge-mobile-02.herokuapp.com/api/v1/users/1565310227/init/?chat_enabled=3&delta_since_timestamp=1',
+  headers: {
+    "X-Token": TOKEN,
+    "X-Version": "2015.07.06",
+    "Content-Type": "application/json",
+    "X-Facebook-API-Version": "2.2",
+    "X-Device-Type": "ios"
+  }
+}
+
 app.get('/', (req, res) => {
-  // If you see a buffer-- what's the filetype? Remember the utf8 argument!
-  fs.readFile('./whos-online.json', 'utf8', (err, data) => {
-    let matches = JSON.parse(data).result.user_data.matches
+  request(options, (error, response, body) => {
+    let matches = JSON.parse(body).result.user_data.matches
     let onlineNow = []
     for (let { id, subject, match_date } of matches) if (ONLINE.test(subject.last_seen)) {
       subject.matchDate = match_date
@@ -29,12 +41,3 @@ app.get('/', (req, res) => {
 })
 
 app.listen(3000, () => console.log('up'))
-
-// request('http://www.google.com', (error, response, body) => {
-//   if (!error && response.statusCode == 200) {
-//     console.log(body)
-//   }
-// })
-
-// import moment from 'moment'
-// moment(1424753341, 'MMM Do, YY')
