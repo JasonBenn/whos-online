@@ -7,7 +7,7 @@ html
     .heading #{onlineNow.length} online now
     .flex-container
       each match in onlineNow
-        .image-with-caption
+        a.image-with-caption(href='https://www.facebook.com/' + match.fbid)
           img(src=match.main_picture.source)
           .caption
             .name #{match.first_name} #{match.last_name}
